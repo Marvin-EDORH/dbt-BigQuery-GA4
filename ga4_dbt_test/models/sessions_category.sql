@@ -5,4 +5,4 @@ SELECT
     CONCAT(user_pseudo_id, (SELECT value.int_value FROM UNNEST(event_params) WHERE key = "ga_session_id")) AS session_id, 
 FROM 
     {{ source('ga4_obfuscated_sample_ecommerce','events_*') }} 
-WHERE _TABLE_SUFFIX BETWEEN '20161201' AND '20161231' 
+WHERE _TABLE_SUFFIX BETWEEN '20210130' AND '20210330' 

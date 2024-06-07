@@ -1,0 +1,28 @@
+
+version: 2
+
+sources:
+  - name: ga4_obfuscated_sample_ecommerce
+    database: bigquery-public-data
+    tables:
+      - name: events_*
+
+
+models:
+  - name: sessions_category
+    columns:
+      - name: Date
+        tests:
+          - unique
+          - not_null
+      - name: category
+      - name: country
+      - name: session_id
+
+models:
+  - name: sessions
+    columns:
+      - name: session_id
+        tests:
+          - unique
+          - not_null

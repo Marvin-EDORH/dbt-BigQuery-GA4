@@ -2,4 +2,4 @@ SELECT
     * 
 FROM 
     {{ ref('sessions_category') }} 
-WHERE session_id IS NOT NULL
+WHERE session_id IS NULL

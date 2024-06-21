@@ -37,4 +37,4 @@ models:
     sessions_category:
       +materialized: ephemeral
     sessions:
-      +materialized: table
+      +materialized: incremental

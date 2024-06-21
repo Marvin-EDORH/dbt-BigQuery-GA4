@@ -34,5 +34,6 @@ jobs:
           cache: 'pip'
       - run: pip install dbt-bigquery 
       - run: dbt run 
+      - run: dbt test
 
 

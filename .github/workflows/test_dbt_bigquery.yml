@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '37 7 * * *'
 
 jobs:
   dbt_dev_ci:
@@ -32,4 +34,5 @@ jobs:
           cache: 'pip'
       - run: pip install dbt-bigquery 
       - run: dbt run 
+
 

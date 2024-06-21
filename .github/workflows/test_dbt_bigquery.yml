@@ -1,0 +1,35 @@
+name: dbt_dev_ci
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  dbt_dev_ci:
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ga4_dbt_test
+    steps:
+      - uses: actions/checkout@v3
+
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.TEST_DBT_BIGQUERY }}'
+
+      # Install gcloud, `setup-gcloud` automatically picks up authentication from `auth`.
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+      - run: pip install dbt-bigquery 
+      - run: dbt run 
+

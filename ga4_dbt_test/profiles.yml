@@ -1,0 +1,13 @@
+ga4_dbt_test:
+  outputs:
+    dev:
+      dataset: dbt_test_marvin
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: US
+      method: oauth
+      priority: interactive
+      project: formation-sql-316408
+      threads: 1
+      type: bigquery
+  target: dev

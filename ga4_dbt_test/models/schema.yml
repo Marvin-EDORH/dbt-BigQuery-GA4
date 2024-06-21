@@ -7,22 +7,24 @@ sources:
     tables:
       - name: events_*
 
-
 models:
   - name: sessions_category
     columns:
       - name: Date
         tests:
-          - unique
           - not_null
+      - name: session_id
       - name: category
       - name: country
-      - name: session_id
 
 models:
   - name: sessions
     columns:
-      - name: session_id
+      - name: primary_key
         tests:
           - unique
           - not_null
+      - name: Date
+      - name: country
+      - name: category
+      - name: sessions

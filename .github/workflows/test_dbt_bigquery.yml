@@ -33,7 +33,7 @@ jobs:
           python-version: '3.9'
           cache: 'pip'
       - run: pip install dbt-bigquery 
-      - run: dbt run 
-      - run: dbt test
+      - run: dbt test 
+      - run: dbt run
 
 

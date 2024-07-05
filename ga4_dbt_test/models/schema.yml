@@ -6,6 +6,10 @@ sources:
     database: bigquery-public-data
     tables:
       - name: events_*
+  - name: dbt_test_marvin
+    database: formation-sql-316408
+    tables:
+      - name: sessions
 
 models:
   - name: sessions_category
@@ -18,12 +22,17 @@ models:
       - name: country
 
 models:
-  - name: sessions
+  - name: primary_key
     columns:
       - name: primary_key
         tests:
-          - unique
           - not_null
+          - unique
+
+models:
+  - name: sessions
+    columns:
+      - name: primary_key
       - name: Date
       - name: country
       - name: category
